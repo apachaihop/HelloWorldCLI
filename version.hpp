@@ -1,0 +1,7 @@
+
+#ifndef HOMEWORK_1_VERSION_HPP
+#define HOMEWORK_1_VERSION_HPP
+
+#define VERSION "0.0.2"
+
+#endif //HOMEWORK_1_VERSION_HPP
