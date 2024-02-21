@@ -35,15 +35,12 @@ jobs:
         run: gcc --version
       # Runs a single command using the runners shell
       - name: Configure CMake
-        run: cmake -B ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DPATCH_VERSION=${{ github.run_number }}
-      - name: Build
-      # Build your program   with the given configuration
-        run: cmake --build ${{github.workspace}} --config ${{env.BUILD_TYPE}}
-      - name: LS
-        run: ls
-      - name: Package
-        run: cpack -G DEB
-        
+        run: |
+          cmake -B ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DPATCH_VERSION=${{ github.run_number }}
+          cmake --build ${{github.workspace}} --config ${{env.BUILD_TYPE}}
+          ls
+          cpack
+          
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
