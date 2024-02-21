@@ -41,7 +41,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
       - name: Package
         run: |
-          cd /build
+          cd build
           cpack
         
       - name: Create Release
