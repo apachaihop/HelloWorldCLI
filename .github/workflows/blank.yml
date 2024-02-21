@@ -36,8 +36,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Configure CMake
         run: |
-          cmake -B ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DPATCH_VERSION=${{ github.run_number }}
-          cmake --build ${{github.workspace}} --config ${{env.BUILD_TYPE}}
+          cmake . -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DPATCH_VERSION=${{ github.run_number }}
+          make
           ls
           cpack
           
