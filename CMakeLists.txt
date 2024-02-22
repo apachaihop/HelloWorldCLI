@@ -21,7 +21,7 @@ add_executable(helloworld_cli main.cpp)
 add_executable(helloworld_cli_test hello_test.cpp)
 
 target_link_libraries(helloworld_cli lib)
-target_link_libraries(helloworld_cli_test lib Gtest:gtest_main)
+target_link_libraries(helloworld_cli_test lib GTest::gtest_main)
 
 target_compile_options(helloworld_cli PRIVATE
         -Wall -Wextra -pedantic -Werror
