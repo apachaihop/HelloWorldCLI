@@ -18,8 +18,10 @@ configure_file (version.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/version.hpp @ONLY)
 add_library(lib STATIC lib.cpp lib.hpp version.hpp)
 
 add_executable(helloworld_cli main.cpp)
+add_executable(helloworld_cli_test hello_test.cpp)
 
 target_link_libraries(helloworld_cli lib)
+target_link_libraries(helloworld_cli_test lib Gtest:gtest_main)
 
 target_compile_options(helloworld_cli PRIVATE
         -Wall -Wextra -pedantic -Werror
@@ -35,4 +37,8 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT example@example.com)
 
 include(CPack)
+
+
+include(GoogleTest)
+gtest_discover_tests(helloworld_cli_test)
 
